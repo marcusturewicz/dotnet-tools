@@ -25,7 +25,7 @@ export default class Tool extends React.Component {
             Latest version: {this.props.value.version}
           </Typography>
           <Typography className="title" color="textSecondary" gutterBottom>
-            Authors: {this.props.value.authors.join(',')}
+            Authors: {this.props.value.authors.join(', ')}
           </Typography>          
         </CardContent>
         <CardActions>
