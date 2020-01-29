@@ -13,10 +13,10 @@ test('renders tool text correctly', () => {
 
     const { getByText } = render(<Tool value={props} />);
 
-    const packageElement = getByText('Package name: Company.Product.Tool');
-    const descriptionElement = getByText('Description: Really sick .NET tools');
-    const versionElement = getByText('Latest version: 1.0.0');
-    const authorsElement = getByText('Authors: Me, You, Them');
+    const packageElement = getByText('Company.Product.Tool');
+    const descriptionElement = getByText('Really sick .NET tools');
+    const versionElement = getByText('1.0.0');
+    const authorsElement = getByText('Me, You, Them');
     const nugetLink = getByText('View on NuGet').closest('a');
 
     expect(packageElement).toBeInTheDocument();
@@ -40,7 +40,7 @@ test('long description is truncated', () => {
 
     const { getByText } = render(<Tool value={props} />);
 
-    const descriptionElement = getByText('Description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +
+    const descriptionElement = getByText('Lorem Ipsum is simply dummy text of the printing and typesetting industry. ' +
                                          'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, ' +
                                          'when an unknown printer took a galley of type a...');
 
