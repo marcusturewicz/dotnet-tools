@@ -4,6 +4,6 @@ import Search from './search';
 
 test('renders search bar empty', () => {
     const { getByText } = render(<Search />);
-    const element = getByText(/Search for .NET tools.../i);
+    const element = getByText(/Search for .NET global tools.../i);
     expect(element).toBeInTheDocument();
   });

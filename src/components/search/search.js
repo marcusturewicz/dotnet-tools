@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios'
 import Tool from '../tool/tool'
-import { FormControl, InputLabel, Input, LinearProgress, TablePagination, Button, Grid, CircularProgress } from '@material-ui/core';
+import { FormControl, InputLabel, Input, LinearProgress, Button, Grid, CircularProgress } from '@material-ui/core';
 
 export default class Search extends React.Component {
 
@@ -44,7 +44,7 @@ export default class Search extends React.Component {
         return (
             <div>
                 <FormControl fullWidth>
-                    <InputLabel htmlFor="search-bar">Search for .NET tools...</InputLabel>
+                    <InputLabel htmlFor="search-bar">Search for .NET global tools...</InputLabel>
                     <Input
                         id="search-bar"
                         onKeyDown={handleKeyPress}
@@ -64,7 +64,7 @@ export default class Search extends React.Component {
                             {!this.state.loading && <Button disabled={!this.state.hasMoreResults} variant="contained" color="primary" onClick={onLoadMoreClicked}>Load more...</Button>}
                             {this.state.loading && <CircularProgress />}
                         </Grid>
-                        <p hidden={this.state.hasMoreResults}>No more results available.</p>                        
+                        <p hidden={this.state.hasMoreResults}>No more results available.</p>
                         <br />
                     </div>
                 }
