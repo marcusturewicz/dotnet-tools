@@ -1,6 +1,7 @@
 # ToolGet
 
-![build status](https://github.com/marcusturewicz/dotnet-tools/workflows/CI/badge.svg)
+![build status](https://github.com/marcusturewicz/toolget/workflows/CI/badge.svg)
+![build status](https://github.com/marcusturewicz/toolget/workflows/CD/badge.svg)
 
  Website to search for .NET global tools from NuGet.
 
