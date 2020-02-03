@@ -18,7 +18,7 @@ This project uses React and is written in JavaScript, CSS and HTML. You should o
 2. From command line, run `npm start` to start the react dev server.
 3. A browser tab at `http://localhost:3000` will be opened.
 
-## How to Contribute and Give Feedback
+## Contributing
 
 Check out the [contributing](CONTRIBUTING.md) page to see the best places to log issues and our code of conduct.
 
