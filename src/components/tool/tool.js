@@ -68,7 +68,7 @@ const ComplexGrid = (tool) => {
 
 export default class Tool extends React.Component {
 
-  errorIconUrl = 'https://www.nuget.org/Content/gallery/img/default-package-icon.svg';
+  errorIconUrl = './icon-192x192.png';
 
   trimString(input, chars) {
     return input.length > chars ? `${input.substring(0, chars)}...` : input;

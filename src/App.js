@@ -3,11 +3,10 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Search from './components/search/search'
-import { Button } from '@material-ui/core';
-
+import { Button, IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,28 +24,42 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+let theme = createMuiTheme({
+  palette: {
+    primary: { 500: '#1432F5' }
+  }
+});
+theme = responsiveFontSizes(theme);
+
 export default function Album() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <div className={classes.root}>
-        <AppBar position="relative">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              ToolGet
-          </Typography>
-            <Button className={classes.menuItem} href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
-            <Button className={classes.menuItem} href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <main>
-        <Container className={classes.cardGrid} maxWidth="md">
-          <Search />
-        </Container>
-      </main>
-    </React.Fragment>
+    <ThemeProvider theme={theme}>
+      <React.Fragment>
+        <CssBaseline />
+        <div className={classes.root}>
+          <AppBar position="relative">
+            <Container maxWidth="md">
+              <Toolbar>
+                <IconButton edge="start" className={classes.menuItem} color="inherit" aria-label="menu">
+                  <img src="./icon-192x192.png" width="50" style={{ filter: 'brightness(0) invert(1)' }} alt="ToolGet logo inverted" />
+                </IconButton>
+                <Typography variant="h6" className={classes.title}>
+                  ToolGet
+                </Typography>
+                <Button href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
+                <Button href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
+              </Toolbar>
+            </Container>
+          </AppBar>
+        </div>
+        <main>
+          <Container className={classes.cardGrid} maxWidth="md">
+            <Search />
+          </Container>
+        </main>
+      </React.Fragment>
+    </ThemeProvider>
   );
 }
