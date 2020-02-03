@@ -1,10 +1,10 @@
 # ToolGet
 
-![](public/apple-icon-144x144.png)
+![](public/apple-icon-114x114.png)
 
 Search for .NET global tools from NuGet: https://www.toolget.net
 
- ![](img/get-started.png)
+ ![](img/toolget.png)
 
 ## Build status
 
