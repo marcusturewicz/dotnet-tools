@@ -4,12 +4,12 @@
 
 Search for .NET global tools from NuGet: https://www.toolget.net
 
+ ![](img/get-started.png)
+
 ## Build status
 
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CI/badge.svg)
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CD/badge.svg)
-
- ![](img/get-started.png)
 
 ## Get Started
 
