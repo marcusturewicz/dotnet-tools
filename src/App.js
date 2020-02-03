@@ -38,7 +38,7 @@ export default function Album() {
               ToolGet
           </Typography>
             <Button className={classes.menuItem} href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
-            <Button className={classes.menuItem} href="https://github.com/marcusturewicz/toolget/issues" target="_blank" rel="noopener noreferrer" >Feeback</Button>
+            <Button className={classes.menuItem} href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
           </Toolbar>
         </AppBar>
       </div>

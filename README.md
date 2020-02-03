@@ -1,4 +1,4 @@
-# ToolGet
+![][public/icon-192x192.png] # ToolGet
 
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CI/badge.svg)
 ![build status](https://github.com/marcusturewicz/toolget/workflows/CD/badge.svg)
