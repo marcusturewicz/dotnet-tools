@@ -52,8 +52,9 @@ export default class Search extends React.Component {
     }
     return (
       <div>
-        <FormControl fullWidth>
+        <FormControl id="search-form" fullWidth>
           <TextField
+            id="search-input"
             value={this.state.search}
             onChange={updateInputValue}
             variant="outlined"
