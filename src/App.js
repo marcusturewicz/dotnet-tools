@@ -26,9 +26,19 @@ const useStyles = makeStyles(theme => ({
 
 let theme = createMuiTheme({
   palette: {
-    primary: { 500: '#1432F5' }
-  }
-});
+    primary: {
+      light: '#705fff',
+      main: '#1432f5',
+      dark: '#0003c1',
+      contrastText: '#fff'
+    },
+    secondary: {
+      light: '#ffbfff',
+      main: '#f18df4',
+      dark: '#bd5cc1',
+      contrastText: '#000'
+    }
+}});
 theme = responsiveFontSizes(theme);
 
 export default function Album() {
@@ -48,8 +58,8 @@ export default function Album() {
                 <Typography variant="h6" className={classes.title}>
                   ToolGet
                 </Typography>
-                <Button href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
-                <Button href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
+                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
+                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
               </Toolbar>
             </Container>
           </AppBar>
