@@ -63,7 +63,7 @@ export default class Search extends React.Component {
             InputProps={{
               endAdornment: (
                 <InputAdornment onClick={handleSearchClicked}>
-                  <IconButton>
+                  <IconButton aria-label="Search button">
                     <SearchIcon />
                   </IconButton>
                 </InputAdornment>
