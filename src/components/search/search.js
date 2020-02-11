@@ -58,7 +58,7 @@ export default class Search extends React.Component {
             value={this.state.search}
             onChange={updateInputValue}
             variant="outlined"
-            label="Search for .NET global tools..."
+            label="Search for .NET Tools..."
             onKeyDown={handleKeyPress}
             InputProps={{
               endAdornment: (

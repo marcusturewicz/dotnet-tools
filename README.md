@@ -2,7 +2,7 @@
 
 ![](public/apple-icon-114x114.png)
 
-Search for .NET global tools from NuGet: https://www.toolget.net
+Search for .NET Tools from NuGet: https://www.toolget.net
 
  ![](img/toolget.png)
 
