@@ -48,6 +48,9 @@ const ComplexGrid = (tool) => {
                   {tool.description}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
+                  {tool.totalDownloads} total downloads
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
                   {tool.authors}
                 </Typography>
               </Grid>
@@ -88,6 +91,7 @@ export default class Tool extends React.Component {
         version={this.props.value.version}
         url={`https://nuget.org/packages/${this.props.value.id}`}
         authors={this.trimString(this.props.value.authors.join(', '), 100)}
+        totalDownloads={this.props.value.totalDownloads.toLocaleString()}
       />
     )
   }
