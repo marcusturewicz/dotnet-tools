@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios'
 import Tool from '../tool/tool'
 import { FormControl, LinearProgress, Button, Grid, CircularProgress, InputAdornment, IconButton, TextField } from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
@@ -32,13 +31,15 @@ export default class Search extends React.Component {
     const search = () => {
       this.setState({ loading: true }, () => {
         const pageSkip = this.state.page * this.state.pageSize;
-        axios.get(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(response => {
-          this.setState({
-            tools: this.state.newSearch ? response.data.data : this.state.tools.concat(response.data.data),
-            loading: false,
-            hasSearched: true,
-            hasMoreResults: response.data.totalHits > response.data.data.length
-          });
+        fetch(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(resp => {
+          resp.json().then(response => {
+            this.setState({
+              tools: this.state.newSearch ? response.data : this.state.tools.concat(response.data),
+              loading: false,
+              hasSearched: true,
+              hasMoreResults: response.totalHits > response.data.length
+            });
+          })
         });
       });
     }
@@ -58,7 +59,7 @@ export default class Search extends React.Component {
             value={this.state.search}
             onChange={updateInputValue}
             variant="outlined"
-            label="Search for .NET Tools..."
+            label="Search for .NET global tools..."
             onKeyDown={handleKeyPress}
             InputProps={{
               endAdornment: (
