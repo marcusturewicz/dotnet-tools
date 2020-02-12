@@ -33,11 +33,12 @@ export default class Search extends React.Component {
         const pageSkip = this.state.page * this.state.pageSize;
         fetch(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(resp => {
           resp.json().then(response => {
+            const tools = this.state.newSearch ? response.data : this.state.tools.concat(response.data);
             this.setState({
-              tools: this.state.newSearch ? response.data : this.state.tools.concat(response.data),
+              tools: tools,
               loading: false,
               hasSearched: true,
-              hasMoreResults: response.totalHits > response.data.length
+              hasMoreResults: response.totalHits > tools.length
             });
           })
         });
