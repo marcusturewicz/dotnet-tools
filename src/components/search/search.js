@@ -62,6 +62,7 @@ export default class Search extends React.Component {
             variant="outlined"
             label="Search for .NET Tools..."
             onKeyDown={handleKeyPress}
+            autoFocus
             InputProps={{
               endAdornment: (
                 <InputAdornment onClick={handleSearchClicked}>
