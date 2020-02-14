@@ -2,6 +2,7 @@ import React from 'react';
 import Tool from '../tool/tool'
 import { FormControl, LinearProgress, Button, Grid, CircularProgress, InputAdornment, IconButton, TextField } from '@material-ui/core';
 import SearchIcon from "@material-ui/icons/Search";
+import queryString from 'query-string'
 
 export default class Search extends React.Component {
 
@@ -19,38 +20,46 @@ export default class Search extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const qs = queryString.parse(this.props.location.search);
+    if ('q' in qs) {
+      this.setState({ search: qs.q }, () => this.search());
+    }
+  }
+
+  search() {
+    this.setState({ loading: true }, () => {
+      const pageSkip = this.state.page * this.state.pageSize;
+      fetch(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(resp => {
+        resp.json().then(response => {
+          const tools = this.state.newSearch ? response.data : this.state.tools.concat(response.data);
+          this.setState({
+            tools: tools,
+            loading: false,
+            hasSearched: true,
+            hasMoreResults: response.totalHits > tools.length
+          });
+        })
+      });
+    });
+  }
+
   render() {
     const handleKeyPress = (event) => {
       if (event.key === 'Enter') {
-        this.setState({ page: 0, newSearch: true }, () => search());
+        this.setState({ page: 0, newSearch: true }, () => this.search());
       }
     }
     const handleSearchClicked = () => {
-      this.setState({ page: 0, newSearch: true }, () => search());
-    }
-    const search = () => {
-      this.setState({ loading: true }, () => {
-        const pageSkip = this.state.page * this.state.pageSize;
-        fetch(`https://azuresearch-usnc.nuget.org/query?q=${this.state.search}&packageType=DotnetTool&skip=${pageSkip}&take=${this.state.pageSize}`).then(resp => {
-          resp.json().then(response => {
-            const tools = this.state.newSearch ? response.data : this.state.tools.concat(response.data);
-            this.setState({
-              tools: tools,
-              loading: false,
-              hasSearched: true,
-              hasMoreResults: response.totalHits > tools.length
-            });
-          })
-        });
-      });
+      this.setState({ page: 0, newSearch: true }, () => this.search());
     }
     const onLoadMoreClicked = () => {
-      this.setState({ page: this.state.page + 1, newSearch: false }, () => search());
+      this.setState({ page: this.state.page + 1, newSearch: false }, () => this.search());
     }
     const updateInputValue = (event) => {
       this.setState({
         search: event.target.value
-      });
+      }, () => this.props.history.push({ search: `?q=${this.state.search}`, pathname: '/tools' }));
     }
     return (
       <div>

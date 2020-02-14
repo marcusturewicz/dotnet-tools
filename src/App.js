@@ -3,10 +3,11 @@ import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider} from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Search from './components/search/search'
 import { Button, IconButton } from '@material-ui/core';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,7 +39,8 @@ let theme = createMuiTheme({
       dark: '#bd5cc1',
       contrastText: '#000'
     }
-}});
+  }
+});
 theme = responsiveFontSizes(theme);
 
 export default function Album() {
@@ -66,7 +68,12 @@ export default function Album() {
         </div>
         <main>
           <Container className={classes.cardGrid} maxWidth="md">
-            <Search />
+            <Router>
+              <Switch>
+                <Route exact to="/" component={Search} />
+                <Route exact to="/tools" component={Search} />
+              </Switch>
+            </Router>
           </Container>
         </main>
       </React.Fragment>
