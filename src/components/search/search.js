@@ -82,6 +82,7 @@ export default class Search extends React.Component {
             onChange={updateInputValue}
             variant="outlined"
             label="Search for .NET Tools..."
+            placeholder="e.g. formatting tool"
             onKeyDown={handleKeyPress}
             autoFocus
             InputProps={{
