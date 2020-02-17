@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import Search from './components/search/search'
 import { Button, IconButton } from '@material-ui/core';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import NotFound from './components/not-found/not-found';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -70,8 +71,9 @@ export default function Album() {
           <Container className={classes.cardGrid} maxWidth="md">
             <Router>
               <Switch>
-                <Route exact to="/" component={Search} />
-                <Route exact to="/tools" component={Search} />
+                <Route exact path="/" component={Search} />
+                <Route path="/tools" component={Search} />
+                <Route component={NotFound} />
               </Switch>
             </Router>
           </Container>
