@@ -61,7 +61,7 @@ export default function Album() {
                 <Typography variant="h6" className={classes.title}>
                   ToolGet
                 </Typography>
-                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/blob/master/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
+                <Button color="inherit" href="https://github.com/marcusturewicz/toolget/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer" >Privacy</Button>
                 <Button color="inherit" href="https://github.com/marcusturewicz/toolget/issues/new/choose" target="_blank" rel="noopener noreferrer" >Feeback</Button>
               </Toolbar>
             </Container>
